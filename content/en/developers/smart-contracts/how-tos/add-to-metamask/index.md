@@ -1,10 +1,11 @@
 ---
 title: "Add to MetaMask"
-description: "MetaMask is a popular browser extension that allows users to interact with blockchain applications. This guide shows you how to integrate FIL into MetaMask using the Hyperspace testnet."
-lead: "MetaMask is a popular browser extension that allows users to interact with blockchain applications. This guide shows you how to integrate FIL into MetaMask using the Hyperspace testnet."
+description: "MetaMask is a popular browser extension that allows users to interact with blockchain applications. This guide shows you how to integrate FIL into MetaMask using the Hyperspace testnet or a local testnet."
+lead: "MetaMask is a popular browser extension that allows users to interact with blockchain applications. This guide shows you how to integrate FIL into MetaMask using the Hyperspace testnet or a local testnet. This page assumes that you already have [MetaMask installed](https://metamask.io/) in your browser."
 menu:
     developers:
         parent: "developers-how-tos"
+        identifier: "add-to-metamask-skljfh12p98y2b7fgto8rwet4"
 type: docs
 weight: 40
 draft: false
@@ -14,11 +15,9 @@ aliases:
     - "/developers/smart-contracts/how-tos/add-to-metamask/"
 ---
 
-{{< beta-warning >}}
+You can connect your MetaMask wallet to a Filecoin testnet [automatically by using Chainlist.org](#chainlist). You can also [manually enter](#manual) the testnet variables into MetaMask.
 
-This page assumes that you already have [MetaMask installed](https://metamask.io/) in your browser.
-
-## Simple method
+## Chainlist
 
 The easiest way to add a Filecoin testnet to your MetaMask is by using the pre-configured options at chainlist.org.
 
@@ -26,6 +25,8 @@ The easiest way to add a Filecoin testnet to your MetaMask is by using the pre-c
 1. Enable the **Testnets** toggle and enter `Filecoin` into the search bar.
 
     ![Search for Filecoin testnets in Chainlist.](chainlist-search-for-filecoin-testnets.png)
+
+1. Select the testnet you want to connect to. In this example we are going to connect to the Hyperspace testnet.
 
 1. Scroll down to find the **Filecoin -- Hyperspace** testnet:
 
@@ -55,26 +56,16 @@ The easiest way to add a Filecoin testnet to your MetaMask is by using the pre-c
 
     ![MetaMask on the Filecoin Hyperspace testnet.](chainlist-hyperspace-added.png)
 
-## Manual process
+## Manual
 
-If you can't or don't want to use Chainlist, you can add the Hyperspace network to your MetaMask manually.
+If you can't or don't want to use Chainlist, you can add a testnet to your MetaMask wallet manually.
 
-### Prerequisities
+{{< tabs tabTotal="2">}}
+{{< tab tabName="Hyperspace" >}}
+<br>
 
-Before we get started, you'll need the following:
-
-- A [Chromium-based browser](https://en.wikipedia.org/wiki/Chromium_web_browser#Browsers_based_on_Chromium), or [Firefox](https://www.mozilla.org/en-CA/firefox/products/).
-- A browser with [MetaMask](https://metamask.io/) installed.
-
-### Steps
-
-The process for integrating Filecoin into MetaMask is fairly simple but has some very specific variables that you must copy exactly.
-
-1. Open your browser and open the MetaMask plugin. If you haven't opened the MetaMask plugin before, you'll be prompted to create a new wallet. Follow the prompts to create a wallet.
-2. Click the user circle and select **Settings**:
-
-    ![Click Settings from within MetaMask](manual-show-settings.jpg)
-
+1. Open your browser and open the MetaMask plugin.
+2. Click the user circle at the top right and select **Settings**:
 3. Select **Networks**.
 4. Click **Add a network**.
 5. Scroll down and click **Add a network manually**.
@@ -96,6 +87,37 @@ The process for integrating Filecoin into MetaMask is fairly simple but has some
 9.  The Hyperspace testnet should now be shown in your MetaMask window.
 10. Done!
 
+
+{{< /tab >}}
+{{< tab tabName="Local-testnet" >}}
+<br>
+
+1. Ensure you have set `EnableEthRPC` to `true` within your Lotus client's `config.toml file.
+1. Open your browser and open the MetaMask plugin.
+2. Click the user circle at the top right and select **Settings**:
+3. Select **Networks**.
+4. Click **Add a network**.
+5. Scroll down and click **Add a network manually**.
+6. Enter the following information into the fields:
+
+    | Field | Value |
+    | --- | --- |
+    | Network name | `Filecoin local testnet` |
+    | New RPC URL | `http://localhost:1234/rpc/v1` |
+    | Chain ID | `31415926` |
+    | Currency symbol | `tFIL` |
+
+7. Pick one of the following block explorers, and enter the URL into the **Block explorer (optional)** field:
+
+    - Glif Explorer: `https://explorer.glif.io/?network=hyperspace`
+    - Filscan: `https://hyperspace.filscan.io/`
+
+8. Review the values in the fields and click **Save**.
+9. Your MetaMask wallet should now be connected to your local testnet!
+
+{{< /tab >}}
+{{< /tabs >}}
+
 ## Next steps
 
-You can now add funds to this wallet by using the [Hyperspace testnet faucet]({{< relref "get-test-funds" >}}).
+You can now add funds to your [MetaMask wallet]({{< relref "get-test-funds" >}}) and [deploy a contract]({{< relref "deploy-a-contract" >}})!
